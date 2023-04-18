@@ -1,9 +1,8 @@
-import os
-import re
 import subprocess
+import json
 
 def get_cpu_temp():
-    import json
+    """ Returns (current, max) tuple in Celsius """
     output = subprocess.check_output("sensors -j", shell=True, text=True)
     output = json.loads(output)
     return (
