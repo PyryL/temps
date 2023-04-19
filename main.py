@@ -1,7 +1,8 @@
-from temps import TempGetter, Grapher, Config
+from temps import TempGetter, Grapher, Config, Arguments
 
 def main():
-    config = Config()
+    arguments = Arguments()
+    config = Config(arguments)
     temp_getter = TempGetter(config)
     graph = Grapher()
     for result in temp_getter.get_temps():
