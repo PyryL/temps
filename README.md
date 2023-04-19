@@ -4,13 +4,27 @@ _Monitor CPU, GPU & other temperatures_
 
 ## Installation
 
+Initialize environment and install Python dependencies by running
+
+```
+poetry install
+```
+
 Install `sensors` with
 
 ```
 apt install lm-sensors
 ```
 
-Create a config file at `~/.tempconfig.json`. Refer the next section about the content of that file.
+Create a config file at `~/.tempconfig.json` as described in [Configuration section](#configuration) below.
+
+## Usage
+
+Application can be run with command
+
+```
+poetry run python main.py
+```
 
 ## Configuration
 
