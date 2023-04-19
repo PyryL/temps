@@ -1,12 +1,11 @@
-from temps import TempGetter, Grapher
+from temps import TempGetter, Grapher, Config
 
 def main():
-    cpu_temp = TempGetter.get_cpu_temp()
-    acpi_temp = TempGetter.get_acpi_temp()
+    config = Config()
+    temp_getter = TempGetter(config)
     graph = Grapher()
-    graph.add_graph("CPU", cpu_temp[0], cpu_temp[1])
-    graph.add_graph("ACPI", acpi_temp[0], acpi_temp[1])
-    graph.add_graph("Test", 112.48454884365865, 87)
+    for result in temp_getter.get_temps():
+        graph.add_graph(result[0], result[1], result[2])
     graph.print()
 
 if __name__ == "__main__":
