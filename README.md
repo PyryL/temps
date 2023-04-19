@@ -42,6 +42,16 @@ key | value
 
 Temperatures will be outputted in the order they appear in this array.
 
+## Building
+
+Python application can be built to native application by running
+
+```
+poetry run pyinstaller --onefile --name temps main.py
+```
+
+The executable file will appear at `dist/temps`.
+
 ## License
 
 Copyright (c) 2023 Pyry Lahtinen
