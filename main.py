@@ -1,5 +1,6 @@
 import subprocess
 import json
+from temps import Grapher
 
 def get_cpu_temp():
     """ Returns (current, max) tuple in Celsius """
@@ -23,5 +24,8 @@ def get_acpi_temp():
 if __name__ == "__main__":
     cpu_temp = get_cpu_temp()
     acpi_temp = get_acpi_temp()
-    print(f" CPU: {cpu_temp[0]} / {cpu_temp[1]}")
-    print(f"ACPI: {acpi_temp[0]} / {acpi_temp[1]}")
+    graph = Grapher()
+    graph.add_graph(cpu_temp[0]/cpu_temp[1], "CPU", f"{cpu_temp[0]} / {cpu_temp[1]}")
+    graph.add_graph(acpi_temp[0]/acpi_temp[1], "ACPI", f"{acpi_temp[0]} / {acpi_temp[1]}")
+    graph.add_graph(112/87, "Test", f"{112} / {87}")
+    graph.print()
